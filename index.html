@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshHeat Restaurent</title>
+    <link rel="shortcut icon" href="./img/titleIcon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+<body class="bg-white text-gray-800 overflow-x-hidden">
+
+<!-- Preloader -->
+<div id="preLoader"></div>
+
+<!-- ===================== DESKTOP HEADER ===================== -->
+<header class="relative hidden lg:block" id="mainHeader">
+    <!-- Top Red Bar -->
+    <div class="bg-brand-red px-12 flex justify-between items-center h-12 relative z-10">
+        <span class="text-pink-200 text-sm font-medium">
+            <i class="fa-solid fa-clock text-white mr-1"></i> 09:00 am - 06:00 pm
+        </span>
+        <div class="flex gap-4 items-center text-white">
+            <span class="text-sm">Follow Us :</span>
+            <a href="#" class="hover:text-pink-200 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-pink-200 transition-colors"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.youtube.com/" class="hover:text-pink-200 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="hover:text-pink-200 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+    <!-- Bottom Dark Nav Bar -->
+    <div class="bg-brand-dark px-12 flex justify-between items-center h-22" style="height:88px;">
+        <a href="#home">
+            <img src="img/logoWhite.svg" alt="FreshHeat Logo" class="h-12" onerror="this.outerHTML='<span class=\'text-brand-orange font-heading text-2xl font-bold\'>Fresh<span class=\'text-brand-red\'>Heat</span></span>'">
+        </a>
+        <nav class="flex gap-8 items-center font-bold">
+            <a href="#home" class="text-white hover:text-brand-red transition-colors text-base">Home +</a>
+            <a href="#about" class="text-white hover:text-brand-red transition-colors text-base">About +</a>
+            <a href="#menu" class="text-white hover:text-brand-red transition-colors text-base">Menu +</a>
+            <a href="#reservation" class="text-white hover:text-brand-red transition-colors text-base">Reservation +</a>
+            <a href="#blog" class="text-white hover:text-brand-red transition-colors text-base">Blog +</a>
+            <a href="#contact" class="text-white hover:text-brand-red transition-colors text-base">Contact +</a>
+        </nav>
+        <div class="flex gap-5 items-center text-white">
+            <input type="search" placeholder="Search..." id="desktopSearch" class="search-hidden bg-transparent border-b border-white text-white placeholder-gray-400 px-2 py-1 outline-none focus:border-pink-300 text-sm transition-all">
+            <button id="desktopSearchBtn" class="hover:text-brand-red transition-colors text-lg"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <a href="#" class="hover:text-brand-red transition-colors text-lg"><i class="fa-solid fa-cart-shopping"></i></a>
+            <button id="openSideBtn" class="hover:text-brand-red transition-colors text-lg"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- ===================== STICKY NAVBAR ===================== -->
+<header id="stickyNav" class="fixed top-[-100px] left-0 w-full z-50 opacity-0 bg-white shadow-lg">
+    <div class="px-6 lg:px-12 flex justify-between items-center h-20">
+        <a href="#home">
+            <img src="img/logo.svg" alt="FreshHeat Logo" class="h-10" onerror="this.outerHTML='<span class=\'text-brand-orange font-heading text-xl font-bold\'>Fresh<span class=\'text-brand-red\'>Heat</span></span>'">
+        </a>
+        <nav class="hidden lg:flex gap-8 items-center font-bold">
+            <a href="#home" class="text-gray-800 hover:text-brand-red transition-colors">Home +</a>
+            <a href="#about" class="text-gray-800 hover:text-brand-red transition-colors">About +</a>
+            <a href="#menu" class="text-gray-800 hover:text-brand-red transition-colors">Menu +</a>
+            <a href="#reservation" class="text-gray-800 hover:text-brand-red transition-colors">Reservation +</a>
+            <a href="#blog" class="text-gray-800 hover:text-brand-red transition-colors">Blog +</a>
+            <a href="#contact" class="text-gray-800 hover:text-brand-red transition-colors">Contact +</a>
+        </nav>
+        <div class="flex gap-5 items-center text-gray-700">
+            <a href="#" class="hover:text-brand-red transition-colors text-lg"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="#" class="hover:text-brand-red transition-colors text-lg"><i class="fa-solid fa-cart-shopping"></i></a>
+            <button id="openSideBtn2" class="hover:text-brand-red transition-colors text-lg"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Top Bar (always visible on mobile) -->
+<div class="lg:hidden fixed top-0 left-0 w-full z-50 bg-brand-dark px-4 flex justify-between items-center h-16 shadow-lg">
+    <a href="#home">
+        <img src="img/logoWhite.svg" alt="Logo" class="h-10" onerror="this.outerHTML='<span class=\'text-brand-orange font-heading text-xl font-bold\'>Fresh<span class=\'text-brand-red\'>Heat</span></span>'">
+    </a>
+    <div class="flex gap-4 items-center text-white">
+        <a href="#" class="hover:text-brand-red transition-colors"><i class="fa-solid fa-cart-shopping"></i></a>
+        <button id="openSideBtnMobile" class="hover:text-brand-red transition-colors text-lg"><i class="fa-solid fa-bars-staggered"></i></button>
+    </div>
+</div>
+
+<!-- ===================== SIDE PANEL ===================== -->
+<div id="sideOverlay" class="fixed inset-0 bg-black/50 z-[999] hidden" onclick="closeSide()"></div>
+<aside id="sidePanel" class="fixed top-0 right-0 w-80 sm:w-96 h-screen bg-white z-[1000] translate-x-full overflow-y-auto border-l-2 border-brand-red shadow-2xl">
+    <div class="p-8">
+        <div class="flex justify-between items-center mb-6">
+            <img src="img/logo.svg" alt="Logo" class="h-10" onerror="this.outerHTML='<span class=\'text-brand-orange font-heading text-xl font-bold\'>Fresh<span class=\'text-brand-red\'>Heat</span></span>'">
+            <button onclick="closeSide()" class="w-10 h-10 bg-brand-red rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <p class="text-gray-500 mb-6 text-sm leading-relaxed">This involves interactions between a business and its customers. It's about meeting customers' needs and resolving their problems. Effective customer service is crucial.</p>
+        <div class="flex flex-wrap gap-3 mb-6">
+            <img src="img/01.jpg" alt="" class="w-24 h-24 object-cover rounded-lg" onerror="this.style.display='none'">
+            <img src="img/02.jpg" alt="" class="w-24 h-24 object-cover rounded-lg" onerror="this.style.display='none'">
+            <img src="img/03.jpg" alt="" class="w-24 h-24 object-cover rounded-lg" onerror="this.style.display='none'">
+            <img src="img/04.jpg" alt="" class="w-24 h-24 object-cover rounded-lg" onerror="this.style.display='none'">
+            <img src="img/05.jpg" alt="" class="w-24 h-24 object-cover rounded-lg" onerror="this.style.display='none'">
+            <img src="img/06.jpg" alt="" class="w-24 h-24 object-cover rounded-lg" onerror="this.style.display='none'">
+        </div>
+        <h4 class="text-gray-900 font-bold text-lg mb-4">Contact Info</h4>
+        <div class="space-y-3 text-gray-600 text-sm">
+            <p><i class="fa-solid fa-phone text-brand-red mr-2"></i> +123 456 7890</p>
+            <p><i class="fa-solid fa-envelope text-brand-red mr-2"></i><a href="mailto:info@example.com" class="hover:text-brand-red">info@example.com</a></p>
+            <p><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> 123 Main Street, Anytown, USA</p>
+            <p><i class="fa-solid fa-clock text-brand-red mr-2"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
+        </div>
+        <button class="mt-6 w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors uppercase text-sm">
+            <i class="fa-solid fa-cart-shopping mr-2"></i> Order Now
+        </button>
+        <div class="flex gap-3 mt-6">
+            <a href="#" class="w-10 h-10 bg-brand-red rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors"><i class="fa-solid fa-share-nodes text-sm"></i></a>
+            <a href="#" class="w-10 h-10 bg-brand-red rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors"><i class="fa-brands fa-youtube text-sm"></i></a>
+        </div>
+    </div>
+</aside>
+
+<!-- ===================== HERO SLIDER ===================== -->
+<section id="home" class="relative w-full h-screen overflow-hidden text-white" style="background-image:url('img/bannerBG1_1.jpg'); background-size:cover; background-position:center;">
+    <div class="absolute inset-0 bg-brand-dark/50"></div>
+
+    <!-- Slide 1 -->
+    <div class="hero-slide active">
+        <div class="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row justify-between items-center relative z-10 w-full pt-16 lg:pt-0">
+            <div class="text-center lg:text-left">
+                <p class="text-brand-red font-bold text-base uppercase tracking-widest mb-3">Welcome FreshHeat</p>
+                <h1 class="font-heading text-4xl sm:text-6xl lg:text-8xl uppercase font-black leading-tight mb-6">Best Pizza<br>In Town</h1>
+                <button class="bg-brand-red hover:bg-brand-orange text-white font-bold py-3 px-8 rounded-md uppercase transition-colors text-sm tracking-wider">
+                    Order Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+            <div class="hidden lg:block">
+                <img src="img/03.png" alt="Pizza" class="w-80 h-80 object-contain hero-float-anim" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+        <div class="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row justify-between items-center relative z-10 w-full pt-16 lg:pt-0">
+            <div class="text-center lg:text-left">
+                <p class="text-brand-red font-bold text-base uppercase tracking-widest mb-3">Welcome FreshHeat</p>
+                <h1 class="font-heading text-4xl sm:text-6xl lg:text-8xl uppercase font-black leading-tight mb-6">Best Burger<br>In Town</h1>
+                <button class="bg-brand-red hover:bg-brand-orange text-white font-bold py-3 px-8 rounded-md uppercase transition-colors text-sm tracking-wider">
+                    Order Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+            <div class="hidden lg:block">
+                <img src="img/offerThumb1_2.png" alt="Burger" class="w-80 h-80 object-contain hero-float-anim" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <!-- Slider Dots -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        <span class="slider-dot w-3 h-3 rounded-full bg-white cursor-pointer transition-all"></span>
+        <span class="slider-dot w-3 h-3 rounded-full bg-white/40 cursor-pointer transition-all"></span>
+    </div>
+</section>
+
+<!-- ===================== POPULAR FOOD ITEMS ===================== -->
+<section class="py-20 bg-gray-50" id="menu">
+    <div class="container mx-auto px-6 lg:px-12 text-center mb-10">
+        <p class="text-brand-orange font-bold uppercase tracking-widest text-sm mb-2 flex items-center justify-center gap-2">
+            <img src="img/titleIcon.svg" alt="" class="w-8 h-8" onerror="this.style.display='none'"> BEST FOOD <img src="img/titleIcon.svg" alt="" class="w-8 h-8" onerror="this.style.display='none'">
+        </p>
+        <h2 class="font-heading text-4xl lg:text-5xl font-bold text-gray-900">Popular Food Items</h2>
+    </div>
+    <div class="overflow-hidden w-full">
+        <div class="food-carousel-track px-4">
+            <!-- Cards (duplicated for infinite scroll illusion) -->
+            <div class="food-card flex-shrink-0 w-56 bg-white shadow-lg rounded-2xl p-5 flex flex-col items-center text-center relative">
+                <div class="relative mb-3">
+                    <img src="img/dishes1_1.png" alt="Pizza" class="w-32 h-32 object-contain relative z-10">
+                    <img src="img/circleShape.png" alt="" class="absolute top-2 left-2 w-28 ring-animate opacity-30" onerror="this.style.display='none'">
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">Delicious Pizza</h3>
+                <p class="text-gray-400 text-sm mb-2">The best pizza in town!</p>
+                <p class="text-brand-red font-bold text-lg">$12.99</p>
+            </div>
+            <div class="food-card flex-shrink-0 w-56 bg-white shadow-lg rounded-2xl p-5 flex flex-col items-center text-center relative">
+                <div class="relative mb-3">
+                    <img src="img/dishes1_4.png" alt="" class="w-32 h-32 object-contain relative z-10">
+                    <img src="img/circleShape.png" alt="" class="absolute top-2 left-2 w-28 ring-animate opacity-30" onerror="this.style.display='none'">
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">Crispy Burger</h3>
+                <p class="text-gray-400 text-sm mb-2">Freshly made every day!</p>
+                <p class="text-brand-red font-bold text-lg">$9.99</p>
+            </div>
+            <div class="food-card flex-shrink-0 w-56 bg-white shadow-lg rounded-2xl p-5 flex flex-col items-center text-center relative">
+                <div class="relative mb-3">
+                    <img src="img/dishes1_3.png" alt="" class="w-32 h-32 object-contain relative z-10">
+                    <img src="img/circleShape.png" alt="" class="absolute top-2 left-2 w-28 ring-animate opacity-30" onerror="this.style.display='none'">
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">Spicy Chicken</h3>
+                <p class="text-gray-400 text-sm mb-2">Hot & crispy!</p>
+                <p class="text-brand-red font-bold text-lg">$11.49</p>
+            </div>
+            <div class="food-card flex-shrink-0 w-56 bg-white shadow-lg rounded-2xl p-5 flex flex-col items-center text-center relative">
+                <div class="relative mb-3">
+                    <img src="img/dishes1_2.png" alt="" class="w-32 h-32 object-contain relative z-10">
+                    <img src="img/circleShape.png" alt="" class="absolute top-2 left-2 w-28 ring-animate opacity-30" onerror="this.style.display='none'">
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">Fresh Pasta</h3>
+                <p class="text-gray-400 text-sm mb-2">Italian classic!</p>
+                <p class="text-brand-red font-bold text-lg">$13.99</p>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="food-card flex-shrink-0 w-56 bg-white shadow-lg rounded-2xl p-5 flex flex-col items-center text-center relative">
+                <div class="relative mb-3">
+                    <img src="img/dishes1_1.png" alt="Pizza" class="w-32 h-32 object-contain relative z-10">
+                    <img src="img/circleShape.png" alt="" class="absolute top-2 left-2 w-28 ring-animate opacity-30" onerror="this.style.display='none'">
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">Delicious Pizza</h3>
+                <p class="text-gray-400 text-sm mb-2">The best pizza in town!</p>
+                <p class="text-brand-red font-bold text-lg">$12.99</p>
+            </div>
+            <div class="food-card flex-shrink-0 w-56 bg-white shadow-lg rounded-2xl p-5 flex flex-col items-center text-center relative">
+                <div class="relative mb-3">
+                    <img src="img/dishes1_4.png" alt="" class="w-32 h-32 object-contain relative z-10">
+                    <img src="img/circleShape.png" alt="" class="absolute top-2 left-2 w-28 ring-animate opacity-30" onerror="this.style.display='none'">
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">Crispy Burger</h3>
+                <p class="text-gray-400 text-sm mb-2">Freshly made every day!</p>
+                <p class="text-brand-red font-bold text-lg">$9.99</p>
+            </div>
+            <div class="food-card flex-shrink-0 w-56 bg-white shadow-lg rounded-2xl p-5 flex flex-col items-center text-center relative">
+                <div class="relative mb-3">
+                    <img src="img/dishes1_3.png" alt="" class="w-32 h-32 object-contain relative z-10">
+                    <img src="img/circleShape.png" alt="" class="absolute top-2 left-2 w-28 ring-animate opacity-30" onerror="this.style.display='none'">
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">Spicy Chicken</h3>
+                <p class="text-gray-400 text-sm mb-2">Hot & crispy!</p>
+                <p class="text-brand-red font-bold text-lg">$11.49</p>
+            </div>
+            <div class="food-card flex-shrink-0 w-56 bg-white shadow-lg rounded-2xl p-5 flex flex-col items-center text-center relative">
+                <div class="relative mb-3">
+                    <img src="img/dishes1_2.png" alt="" class="w-32 h-32 object-contain relative z-10">
+                    <img src="img/circleShape.png" alt="" class="absolute top-2 left-2 w-28 ring-animate opacity-30" onerror="this.style.display='none'">
+                </div>
+                <h3 class="font-heading font-bold text-lg text-gray-900">Fresh Pasta</h3>
+                <p class="text-gray-400 text-sm mb-2">Italian classic!</p>
+                <p class="text-brand-red font-bold text-lg">$13.99</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== OFFER / RESERVATION CARDS ===================== -->
+<section class="py-16 bg-white" id="reservation">
+    <div class="container mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="relative rounded-2xl overflow-hidden flex justify-between items-center p-6 min-h-[180px]" style="background-image:url('img/offerBG1_1.jpg'); background-size:cover; background-color:#010f1c;">
+                <div class="absolute inset-0 bg-brand-dark/60"></div>
+                <div class="relative z-10">
+                    <p class="text-brand-red font-bold text-xs uppercase tracking-widest mb-2">Book A Table</p>
+                    <h3 class="text-white font-heading font-bold text-xl mb-3">Make a Reservation</h3>
+                    <p class="text-white/60 text-xs mb-4 leading-relaxed">Reserve your table online and enjoy a delightful dining experience with us.</p>
+                    <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 px-5 rounded-lg text-xs uppercase transition-colors">Order Now <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                </div>
+                <div class="relative z-10 flex-shrink-0 ml-4">
+                    <img src="img/offerShape1_4.png" alt="" class="absolute -top-10 right-12 w-12 offer-float" onerror="this.style.display='none'">
+                    <img src="img/offerThumb1_1.png" alt="" class="w-24 object-contain" onerror="this.style.display='none'">
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="relative rounded-2xl overflow-hidden flex justify-between items-center p-6 min-h-[180px]" style="background-image:url('img/offerBG1_1.jpg'); background-size:cover; background-color:#010f1c;">
+                <div class="absolute inset-0 bg-brand-dark/60"></div>
+                <div class="relative z-10">
+                    <p class="text-brand-red font-bold text-xs uppercase tracking-widest mb-2">Book A Table</p>
+                    <h3 class="text-white font-heading font-bold text-xl mb-3">Make a Reservation</h3>
+                    <p class="text-white/60 text-xs mb-4 leading-relaxed">Reserve your table online and enjoy a delightful dining experience with us.</p>
+                    <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 px-5 rounded-lg text-xs uppercase transition-colors">Order Now <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                </div>
+                <div class="relative z-10 flex-shrink-0 ml-4">
+                    <img src="img/offerShape1_4.png" alt="" class="absolute -top-10 right-12 w-12 offer-float" onerror="this.style.display='none'">
+                    <img src="img/offerThumb1_3.png" alt="" class="w-24 object-contain" onerror="this.style.display='none'">
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="relative rounded-2xl overflow-hidden flex justify-between items-center p-6 min-h-[180px]" style="background-image:url('img/offerBG1_1.jpg'); background-size:cover; background-color:#010f1c;">
+                <div class="absolute inset-0 bg-brand-dark/60"></div>
+                <div class="relative z-10">
+                    <p class="text-brand-red font-bold text-xs uppercase tracking-widest mb-2">Book A Table</p>
+                    <h3 class="text-white font-heading font-bold text-xl mb-3">Make a Reservation</h3>
+                    <p class="text-white/60 text-xs mb-4 leading-relaxed">Reserve your table online and enjoy a delightful dining experience with us.</p>
+                    <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 px-5 rounded-lg text-xs uppercase transition-colors">Order Now <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                </div>
+                <div class="relative z-10 flex-shrink-0 ml-4">
+                    <img src="img/offerShape1_4.png" alt="" class="absolute -top-10 right-12 w-12 offer-float" onerror="this.style.display='none'">
+                    <img src="img/offerThumb1_2.png" alt="" class="w-24 object-contain" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== FULL BOX PROMO ===================== -->
+<section class="py-10 px-6 lg:px-12">
+    <div class="container mx-auto">
+        <div class="bg-brand-dark rounded-3xl shadow-2xl flex flex-col items-center justify-center text-center py-20 px-6">
+            <p class="text-brand-orange font-bold uppercase tracking-widest text-sm mb-3 flex items-center gap-2">
+                <img src="img/titleIcon.svg" alt="" class="w-8 h-8" onerror="this.style.display='none'"> BEST FOOD <img src="img/titleIcon.svg" alt="" class="w-8 h-8" onerror="this.style.display='none'">
+            </p>
+            <h2 class="font-heading text-3xl sm:text-5xl lg:text-6xl text-white font-bold mb-4 leading-tight">Variety of Flavours<br>From American Cuisine</h2>
+            <p class="text-gray-400 max-w-xl mb-8 leading-relaxed">It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point established fact that</p>
+            <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-4 px-10 rounded-xl uppercase tracking-wider transition-colors text-sm">
+                Order Now <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== TODAY'S SPECIAL (HERO 2) ===================== -->
+<section class="py-20 relative" style="background-image:url('img/bannerBG1_1.jpg'); background-size:cover; background-position:center;">
+    <div class="absolute inset-0 bg-brand-dark/70"></div>
+    <div class="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
+        <div class="text-center lg:text-left max-w-lg">
+            <p class="text-brand-red font-bold text-xs uppercase tracking-widest mb-3">Book A Table</p>
+            <h2 class="font-heading text-4xl sm:text-6xl text-white font-black uppercase mb-5 leading-tight">Today's Special Food</h2>
+            <p class="text-yellow-400 mb-8 leading-relaxed">Reserve your table online and enjoy a delightful dining experience with us. We look forward to serving you!</p>
+            <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-lg uppercase text-sm transition-colors">
+                Order Now <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div class="offer-float">
+            <img src="img/bannerThumb1_2.png" alt="Special Food" class="w-64 lg:w-96 object-contain" onerror="this.style.display='none'">
+        </div>
+    </div>
+</section>
+
+<!-- ===================== MENU SECTION ===================== -->
+<section class="py-20 bg-white" id="about">
+    <div class="container mx-auto px-4 lg:px-12">
+        <div class="bg-orange-50 rounded-3xl p-6 lg:p-12">
+            <!-- Menu Title -->
+            <div class="text-center mb-10">
+                <p class="text-brand-orange font-bold uppercase tracking-widest text-sm mb-2 flex items-center justify-center gap-2">
+                    <img src="img/titleIcon.svg" alt="" class="w-8 h-8" onerror="this.style.display='none'"> BEST FOOD <img src="img/titleIcon.svg" alt="" class="w-8 h-8" onerror="this.style.display='none'">
+                </p>
+                <h2 class="font-heading text-4xl font-bold text-gray-900">Fresheat Food Menu</h2>
+            </div>
+            <!-- Category Icons -->
+            <div class="flex flex-wrap gap-6 items-center justify-center border-b-2 border-gray-200 pb-8 mb-10">
+                <div class="flex items-center gap-2 cursor-pointer hover:text-brand-red transition-colors group">
+                    <img src="img/menuIcon1_2.png" alt="" class="w-10 h-10 group-hover:scale-110 transition-transform" onerror="this.style.display='none'">
+                    <span class="font-bold text-lg">Fast Food</span>
+                </div>
+                <div class="flex items-center gap-2 cursor-pointer hover:text-brand-red transition-colors group">
+                    <img src="img/menuIcon1_3.png" alt="" class="w-10 h-10 group-hover:scale-110 transition-transform" onerror="this.style.display='none'">
+                    <span class="font-bold text-lg">Burgers</span>
+                </div>
+                <div class="flex items-center gap-2 cursor-pointer hover:text-brand-red transition-colors group">
+                    <img src="img/menuIcon1_1.png" alt="" class="w-10 h-10 group-hover:scale-110 transition-transform" onerror="this.style.display='none'">
+                    <span class="font-bold text-lg">Desserts</span>
+                </div>
+                <div class="flex items-center gap-2 cursor-pointer hover:text-brand-red transition-colors group">
+                    <img src="img/menuIcon1_4.png" alt="" class="w-10 h-10 group-hover:scale-110 transition-transform" onerror="this.style.display='none'">
+                    <span class="font-bold text-lg">Drinks</span>
+                </div>
+            </div>
+            <!-- Menu Items Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Menu Item -->
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="img/menuThumb1_1.png" alt="" class="w-16 h-16 object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    <div class="flex-1 text-left">
+                        <a href="#" class="font-heading font-bold text-lg text-gray-900 hover:text-brand-red transition-colors">Chinese Pasta</a>
+                        <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <span class="text-gray-900 font-bold text-base flex-shrink-0">$12.99</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="img/menuThumb1_2.png" alt="" class="w-16 h-16 object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    <div class="flex-1 text-left">
+                        <a href="#" class="font-heading font-bold text-lg text-gray-900 hover:text-brand-red transition-colors">Grilled Chicken</a>
+                        <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <span class="text-gray-900 font-bold text-base flex-shrink-0">$14.99</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="img/menuThumb1_3.png" alt="" class="w-16 h-16 object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    <div class="flex-1 text-left">
+                        <a href="#" class="font-heading font-bold text-lg text-gray-900 hover:text-brand-red transition-colors">Veg Burger</a>
+                        <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <span class="text-gray-900 font-bold text-base flex-shrink-0">$8.99</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="img/menuThumb1_4.png" alt="" class="w-16 h-16 object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    <div class="flex-1 text-left">
+                        <a href="#" class="font-heading font-bold text-lg text-gray-900 hover:text-brand-red transition-colors">Margherita Pizza</a>
+                        <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <span class="text-gray-900 font-bold text-base flex-shrink-0">$15.99</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="img/menuThumb1_5.png" alt="" class="w-16 h-16 object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    <div class="flex-1 text-left">
+                        <a href="#" class="font-heading font-bold text-lg text-gray-900 hover:text-brand-red transition-colors">Seafood Platter</a>
+                        <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <span class="text-gray-900 font-bold text-base flex-shrink-0">$22.99</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="img/menuThumb1_6.png" alt="" class="w-16 h-16 object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    <div class="flex-1 text-left">
+                        <a href="#" class="font-heading font-bold text-lg text-gray-900 hover:text-brand-red transition-colors">BBQ Ribs</a>
+                        <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <span class="text-gray-900 font-bold text-base flex-shrink-0">$19.99</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="img/menuThumb1_7.png" alt="" class="w-16 h-16 object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    <div class="flex-1 text-left">
+                        <a href="#" class="font-heading font-bold text-lg text-gray-900 hover:text-brand-red transition-colors">Caesar Salad</a>
+                        <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <span class="text-gray-900 font-bold text-base flex-shrink-0">$9.99</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="img/menuThumb1_8.png" alt="" class="w-16 h-16 object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    <div class="flex-1 text-left">
+                        <a href="#" class="font-heading font-bold text-lg text-gray-900 hover:text-brand-red transition-colors">Chocolate Cake</a>
+                        <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <span class="text-gray-900 font-bold text-base flex-shrink-0">$7.99</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="img/menuThumb1_9.png" alt="" class="w-16 h-16 object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    <div class="flex-1 text-left">
+                        <a href="#" class="font-heading font-bold text-lg text-gray-900 hover:text-brand-red transition-colors">Lemon Cheesecake</a>
+                        <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <span class="text-gray-900 font-bold text-base flex-shrink-0">$8.49</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="img/menuThumb1_1.png" alt="" class="w-16 h-16 object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    <div class="flex-1 text-left">
+                        <a href="#" class="font-heading font-bold text-lg text-gray-900 hover:text-brand-red transition-colors">Spicy Noodles</a>
+                        <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <span class="text-gray-900 font-bold text-base flex-shrink-0">$11.99</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-brand-dark pt-10 pb-0" id="contact">
+    <!-- Address Bar -->
+    <div class="container mx-auto px-6 lg:px-12 mb-12">
+        <div class="bg-brand-orange rounded-2xl px-8 py-6 flex flex-col sm:flex-row gap-6 items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-brand-dark rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-location-dot text-white"></i>
+                </div>
+                <div>
+                    <p class="text-white/80 text-sm">Address</p>
+                    <h4 class="text-white font-bold text-lg">Wilshire Road, LA</h4>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-brand-dark rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-envelope text-white"></i>
+                </div>
+                <div>
+                    <p class="text-white/80 text-sm">Send Email</p>
+                    <h4 class="text-white font-bold text-lg">info@example.com</h4>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-brand-dark rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-phone text-white"></i>
+                </div>
+                <div>
+                    <p class="text-white/80 text-sm">Call Emergency</p>
+                    <h4 class="text-white font-bold text-lg">+88 0123 456 7899</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Content -->
+    <div class="container mx-auto px-6 lg:px-12 pb-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Logo & Social -->
+            <div class="space-y-4">
+                <img src="img/logoWhite.svg" alt="Logo" class="h-12" onerror="this.outerHTML='<span class=\'text-brand-orange font-heading text-2xl font-bold\'>Fresh<span class=\'text-brand-red\'>Heat</span></span>'">
+                <p class="text-gray-400 text-sm leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, veniam?</p>
+                <div class="flex gap-3">
+                    <a href="#" class="w-9 h-9 border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-brand-orange hover:border-brand-orange transition-all"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-brand-orange hover:border-brand-orange transition-all"><i class="fa-brands fa-youtube text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-brand-orange hover:border-brand-orange transition-all"><i class="fa-brands fa-twitter text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-brand-orange hover:border-brand-orange transition-all"><i class="fa-brands fa-instagram text-sm"></i></a>
+                </div>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-brand-orange font-heading font-bold text-xl mb-4 pb-2 border-b border-white/10">Quick Links</h3>
+                <div class="space-y-1">
+                    <a href="#" class="list-link text-gray-300 text-sm"><i class="fa-solid fa-angles-right text-brand-red mr-2 text-xs"></i>About Us</a>
+                    <a href="#" class="list-link text-gray-300 text-sm"><i class="fa-solid fa-angles-right text-brand-red mr-2 text-xs"></i>Our Gallery</a>
+                    <a href="#" class="list-link text-gray-300 text-sm"><i class="fa-solid fa-angles-right text-brand-red mr-2 text-xs"></i>Our Blogs</a>
+                    <a href="#" class="list-link text-gray-300 text-sm"><i class="fa-solid fa-angles-right text-brand-red mr-2 text-xs"></i>FAQ's</a>
+                    <a href="#" class="list-link text-gray-300 text-sm"><i class="fa-solid fa-angles-right text-brand-red mr-2 text-xs"></i>Contact Us</a>
+                </div>
+            </div>
+            <!-- Our Menu -->
+            <div>
+                <h3 class="text-brand-orange font-heading font-bold text-xl mb-4">Our Menu</h3>
+                <div class="space-y-1">
+                    <a href="#" class="list-link text-gray-300 text-sm"><i class="fa-solid fa-angles-right text-brand-red mr-2 text-xs"></i>Burger King</a>
+                    <a href="#" class="list-link text-gray-300 text-sm"><i class="fa-solid fa-angles-right text-brand-red mr-2 text-xs"></i>Pizza King</a>
+                    <a href="#" class="list-link text-gray-300 text-sm"><i class="fa-solid fa-angles-right text-brand-red mr-2 text-xs"></i>Fresh Food</a>
+                    <a href="#" class="list-link text-gray-300 text-sm"><i class="fa-solid fa-angles-right text-brand-red mr-2 text-xs"></i>Vegetables</a>
+                    <a href="#" class="list-link text-gray-300 text-sm"><i class="fa-solid fa-angles-right text-brand-red mr-2 text-xs"></i>Desserts</a>
+                </div>
+            </div>
+            <!-- Contact -->
+            <div>
+                <h3 class="text-brand-orange font-heading font-bold text-xl mb-4">Contact Us</h3>
+                <p class="text-white text-sm mb-1">Monday-Friday : <span class="text-yellow-400 font-bold">8am - 4pm</span></p>
+                <p class="text-white text-sm mb-4">Saturday : <span class="text-yellow-400 font-bold">8am - 12pm</span></p>
+                <input type="email" placeholder="Your Email Address" class="w-full bg-white/10 border border-white/20 text-white placeholder-gray-400 rounded-lg px-4 py-2 text-sm outline-none focus:border-brand-orange focus:bg-white/15 transition-all">
+            </div>
+        </div>
+    </div>
+
+    <!-- Inner Footer -->
+    <div class="bg-brand-red py-4">
+        <div class="container mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 text-white">
+            <p class="text-sm">© All Copyright 2024 by Safayet<span class="text-yellow-300 font-bold">Broo</span></p>
+            <div class="flex gap-2">
+                <button class="border border-white/60 hover:bg-white hover:text-brand-red transition-all text-white text-xs py-2 px-4 rounded-lg">Terms & Condition</button>
+                <button class="border border-white/60 hover:bg-white hover:text-brand-red transition-all text-white text-xs py-2 px-4 rounded-lg">Privacy Policy</button>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ===================== JAVASCRIPT ===================== -->
+ <script src="./script.js"></script>
+
+</body>
+</html>
