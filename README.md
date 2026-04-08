@@ -11,8 +11,7 @@ FreshHeat is a stylish restaurant website designed to present food items, menu s
 ---
 
 ## 📸 Screenshot
-
-<img width="1366" height="4287" alt="image" src="https://github.com/user-attachments/assets/8fb17469-3b86-4e4b-8817-a874b8b7b30b" />
+<img width="508" height="379" alt="image" src="https://github.com/user-attachments/assets/22992888-1427-4d8f-b95e-40797631e57b" />
 
 
 ---
